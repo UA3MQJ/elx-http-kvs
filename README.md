@@ -24,15 +24,11 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Start
 
-    ```bash
     iex -S mix
-    ```
 
 ## Test
 
-    ```bash
     curl -X GET http://localhost:4000/abc -i
     curl -X DELETE http://localhost:4000/abc -i
     curl -X POST --data "123" http://localhost:4000/abc
     curl -X PUT --data "123" http://localhost:4000/abc
-    ```
