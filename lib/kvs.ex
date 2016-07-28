@@ -6,6 +6,8 @@ defmodule Kvs do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
+    Kvs.DB_SUP.start_link
+
     # Define workers and child supervisors to be supervised
     children = [
       # Starts a worker by calling: Kvs.Worker.start_link(arg1, arg2, arg3)
@@ -16,9 +18,11 @@ defmodule Kvs do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Kvs.Supervisor]
     Supervisor.start_link(children, opts)
+
   end
 
   def start_web_site do
     {:ok, _} = Plug.Adapters.Cowboy.http(Kvs.Router, [])
   end
+
 end
