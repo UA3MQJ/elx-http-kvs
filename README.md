@@ -1,6 +1,6 @@
 # Kvs
 
-**TODO: Add description**
+HTTP key-value storage
 
 ## Installation
 
