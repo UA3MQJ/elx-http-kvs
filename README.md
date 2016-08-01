@@ -12,7 +12,13 @@ HTTP key-value storage
 
 ## Test
 
+    #select
     curl -X GET http://localhost:4000/abc -i
-    curl -X DELETE http://localhost:4000/abc -i
-    curl -X POST --data "123" http://localhost:4000/abc
+    
+    #insert/update
     curl -X PUT --data "123" http://localhost:4000/abc
+    #insert with TTL
+    curl -X POST -F 'value=123' -F 'ttl=100' http://localhost:4000/abc
+    
+    #delete
+    curl -X DELETE http://localhost:4000/abc -i
