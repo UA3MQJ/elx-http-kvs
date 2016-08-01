@@ -7,7 +7,8 @@ defmodule Kvs.DB_SUP do
 
   def init(:ok) do
     children = [
-      worker(Kvs.DB_GEN, [Kvs.DB_GEN])
+      worker(Kvs.DB_GEN, [Kvs.DB_GEN]),
+      worker(Kvs.DBCL_GEN, [Kvs.DBCL_GEN])
     ]
 
     supervise(children, strategy: :one_for_one)
